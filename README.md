@@ -1,3 +1,11 @@
-# LAB-2-Guillermo-Valencia-A00373570
+# lab-apps-eco-fetch | Interactive Media Design
+Boilerplate for the students of my Apps Ecosystems' class
 
-NOTA MUY IMPORTANTE: El programa tarta unos segundos en cargar, supongo yo que será por cuestión del asincronismo.
+**Content:**
+<br> <br> 
+📂 /public
+<ol>
+  <li> index.html</li>
+  <li> style.css </li>
+  <li> sketch.js </li>
+</ol>
