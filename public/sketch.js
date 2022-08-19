@@ -11,7 +11,7 @@ let screen;
 
 
 function setup() {
-    frameRate(60);
+    frameRate(70);
     canvas = createCanvas(windowWidth, windowHeight);
     canvas.style('z-index', '-1');
     canvas.style('position', 'fixed');
@@ -34,87 +34,19 @@ function setup() {
     }
 
 
-
-
-    console.log(pokemonImage);
-
-
 }
 
 function draw() {
     background(0);
-    newCursor();
-    for (let i = 0; i < 3; i++) {
-        image(pokemonImage[i], 10, 10 + (i * 200), 120, 120);
-    }
-    for (let i = 0; i < 3; i++) {
-        image(pokemonImage[i + 3], 150, 10 + (i * 200), 120, 120);
-    }
+    //newCursor();
+    displayImage();
 
-    for (let i = 0; i < 3; i++) {
-        image(pokemonImage[i + 6], 290, 10 + (i * 200), 120, 120);
-    }
 
-    if (pokeAbility != null && pokeName != null) {
-        textSize(50);
-        text(pokeName, 900, 400, 900);
-        text(pokeAbility, 900, 500, 800);
-    }
-
-    if (pokeImage != null) {
-        image(pokeImage, 700, 50, 400, 400)
-    }
-
+    switchPokemon();
 
 }
 
-function mousePressed() {
-    // Bulbasaur
-    if (mouseX > 30 && mouseX < 130 && mouseY > 30 && mouseY < 130) {
-        screen = 0;
-        console.log(":(");
-    }
-
-    // Ivysaur 
-    if (mouseX > 20 && mouseX < 120 && mouseY > 220 && mouseY < 320) {
-        screen = 1;
-    }
-
-    // Venasaur
-    if (mouseX > 10 && mouseX < 125 && mouseY > 420 && mouseY < 550) {
-        screen = 2;
-    }
-
-    // Charmander
-    if (mouseX > 180 && mouseX < 270 && mouseY > 30 && mouseY < 130) {
-        screen = 3;
-    }
-
-    // Charmeleon 
-    if (mouseX > 180 && mouseX < 270 && mouseY > 220 && mouseY < 320) {
-        screen = 4;
-    }
-
-    // Charizard
-    if (mouseX > 180 && mouseX < 275 && mouseY > 420 && mouseY < 550) {
-        screen = 5;
-    }
-
-    // Squirtle
-    if (mouseX > 330 && mouseX < 430 && mouseY > 30 && mouseY < 130) {
-        screen = 6;
-    }
-
-    // Wartotle
-    if (mouseX > 330 && mouseX < 430 && mouseY > 220 && mouseY < 320) {
-        screen = 7;
-    }
-
-    // Blastoide
-    if (mouseX > 330 && mouseX < 430 && mouseY > 420 && mouseY < 550) {
-        screen = 8;
-    }
-
+async function switchPokemon() {
     switch (screen) {
         case 0:
             fetch('https://pokeapi.co/api/v2/pokemon/1/')
@@ -206,7 +138,104 @@ function mousePressed() {
                 });
             break;
     }
+}
 
+async function displayImage() {
+
+    for (let i = 0; i < 3; i++) {
+        image(pokemonImage[i], 10, 10 + (i * 200), 120, 120);
+    }
+    for (let i = 0; i < 3; i++) {
+        image(pokemonImage[i + 3], 150, 10 + (i * 200), 120, 120);
+    }
+
+    for (let i = 0; i < 3; i++) {
+        image(pokemonImage[i + 6], 290, 10 + (i * 200), 120, 120);
+    }
+
+    if (pokeAbility != null && pokeName != null) {
+        textSize(50);
+        text(pokeName, 900, 400, 900);
+        text(pokeAbility, 900, 500, 800);
+    }
+
+    if (pokeImage != null) {
+        image(pokeImage, 700, 50, 400, 400)
+    }
+
+    console.log(pokeName)
+}
+
+function mousePressed() {
+    // Bulbasaur
+    if (mouseX > 30 && mouseX < 130 && mouseY > 30 && mouseY < 130) {
+        screen = 0;
+        console.log(":(");
+    }
+
+    // Ivysaur 
+    if (mouseX > 20 && mouseX < 120 && mouseY > 220 && mouseY < 320) {
+        screen = 1;
+    }
+
+    // Venasaur
+    if (mouseX > 10 && mouseX < 125 && mouseY > 420 && mouseY < 550) {
+        screen = 2;
+    }
+
+    // Charmander
+    if (mouseX > 180 && mouseX < 270 && mouseY > 30 && mouseY < 130) {
+        screen = 3;
+    }
+
+    // Charmeleon 
+    if (mouseX > 180 && mouseX < 270 && mouseY > 220 && mouseY < 320) {
+        screen = 4;
+    }
+
+    // Charizard
+    if (mouseX > 180 && mouseX < 275 && mouseY > 420 && mouseY < 550) {
+        screen = 5;
+    }
+
+    // Squirtle
+    if (mouseX > 330 && mouseX < 430 && mouseY > 30 && mouseY < 130) {
+        screen = 6;
+    }
+
+    // Wartotle
+    if (mouseX > 330 && mouseX < 430 && mouseY > 220 && mouseY < 320) {
+        screen = 7;
+    }
+
+    // Blastoide
+    if (mouseX > 330 && mouseX < 430 && mouseY > 420 && mouseY < 550) {
+        screen = 8;
+    }
+
+    for (let i = 0; i < 3; i++) {
+        image(pokemonImage[i], 10, 10 + (i * 200), 120, 120);
+    }
+    for (let i = 0; i < 3; i++) {
+        image(pokemonImage[i + 3], 150, 10 + (i * 200), 120, 120);
+    }
+
+    for (let i = 0; i < 3; i++) {
+        image(pokemonImage[i + 6], 290, 10 + (i * 200), 120, 120);
+    }
+
+    if (pokeAbility != null && pokeName != null) {
+        fill(255);
+        textSize(50);
+        text(pokeName, 900, 400, 900);
+        text(pokeAbility, 900, 500, 800);
+    }
+
+    if (pokeImage != null) {
+        image(pokeImage, 700, 50, 400, 400)
+    }
+
+    console.log(pokeName)
 }
 
 function windowResized() {
